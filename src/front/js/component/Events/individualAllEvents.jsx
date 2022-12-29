@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../store/appContext";
-import { Weather } from "../weather.jsx";
+//import { Weather } from "../weather.jsx";
 
 const IndividualAllEvents = (props) => {
   const { store, actions } = useContext(Context);
@@ -99,7 +99,7 @@ const IndividualAllEvents = (props) => {
             </p>
             {event.destination_lat != undefined ? (
               <span className="text-end rounded-circle ms-2">
-                <Weather long={event.origin_lon} lat={event.origin_lat} />
+                {/* <Weather long={event.origin_lon} lat={event.origin_lat} /> */}
               </span>
             ) : (
               <span>datos del tiempo no han cargado</span>
@@ -114,10 +114,10 @@ const IndividualAllEvents = (props) => {
             </p>
             {event.destination_lat != undefined ? (
               <span className="text-end rounded-circle ms-2">
-                <Weather
+                {/* <Weather
                   long={event.destination_lon}
                   lat={event.destination_lat}
-                />
+                /> */}
               </span>
             ) : (
               <span>datos del tiempo no han cargado</span>
