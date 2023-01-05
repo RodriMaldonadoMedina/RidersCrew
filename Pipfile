@@ -22,6 +22,7 @@ flask-jwt-extended = "*"
 slugify = "*"
 importlib-metadata = "*"
 importlib-resources = "*"
+python-slugify = "*"
 
 [requires]
 python_version = "3.10"
