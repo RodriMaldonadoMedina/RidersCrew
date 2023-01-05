@@ -19,3 +19,7 @@ Esta hecho para que se adapte a cualquier dispositivo (responsive).
 - sqlAlchemy
 - Flask
 
+### :muscle: Desarroladores del proyecto:
+
+- Oscar Urrutia - https://github.com/Wolfdog940
+- Antonio Moyano - https://github.com/Legebrind
