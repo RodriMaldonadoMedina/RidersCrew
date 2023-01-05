@@ -1,5 +1,5 @@
 # WebApp boilerplate with React JS and Flask API
-<h1> # Raiders Crew </h1>
+<h1 align="center"> Raiders Crew </h1>
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
 
