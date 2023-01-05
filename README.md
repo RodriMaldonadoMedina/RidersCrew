@@ -21,5 +21,6 @@ Esta hecho para que se adapte a cualquier dispositivo (responsive).
 
 ### :muscle: Desarroladores del proyecto:
 
+- Rodrigo Maldonado Medina - https://github.com/RodriMaldonadoMedina
 - Oscar Urrutia - https://github.com/Wolfdog940
 - Antonio Moyano - https://github.com/Legebrind
