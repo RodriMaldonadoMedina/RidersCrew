@@ -8,6 +8,8 @@ const AllEventsUserFavorite = (props) => {
   let { page, per_page } = useParams();
 
   const navigate = useNavigate();
+  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+  const backend_url = "https://sample-service-name-mzp0.onrender.com";
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -26,7 +28,7 @@ const AllEventsUserFavorite = (props) => {
   const getEventsUserFavorite = async (user_id, page, per_page) => {
     try {
       const resp = await fetch(
-        process.env.BACKEND_URL + "/api/events/"+ user_id + "/" + page + "/" + per_page,{
+        backend_url + "/api/events/"+ user_id + "/" + page + "/" + per_page,{
         headers: {
           "content-type": "application/json",
           Authorization: "Bearer " + localStorage.token

@@ -7,6 +7,9 @@ export const AllComments = (props) => {
   const [comments, setComments] = useState([]);
   const { store, actions } = useContext(Context);
 
+  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+  const backend_url = "https://sample-service-name-mzp0.onrender.com";
+
   useEffect(() => {
     let synchEffect = async () => {
       await getComments(props.item_id);
@@ -22,7 +25,7 @@ export const AllComments = (props) => {
         },
       };
       const resp = await fetch(
-        process.env.BACKEND_URL +
+        backend_url +
           `/api/list${props.type}Comments/${props.item_id}`,
         opts
       );
@@ -49,7 +52,7 @@ export const AllComments = (props) => {
     };
     try {
       const resp = await fetch(
-        process.env.BACKEND_URL + `/api/list${props.type}Comments`,
+        backend_url + `/api/list${props.type}Comments`,
         opts
       );
       if (resp.status !== 200) {

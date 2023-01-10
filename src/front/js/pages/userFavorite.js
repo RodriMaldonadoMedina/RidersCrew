@@ -9,6 +9,9 @@ const UserFavorite = () => {
   const {user_id} = useParams();
   const [user, setUser] = useState({});
 
+  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+  const backend_url = "https://sample-service-name-mzp0.onrender.com";
+
   useEffect(()=>{
     if (!localStorage.getItem("token")) {
       navigate("/");
@@ -19,7 +22,7 @@ const UserFavorite = () => {
   const getFavoriteProfile = async (user_id) => {
     try {
       const resp = await fetch(
-        process.env.BACKEND_URL + "/api/user/data/info/" + user_id,
+        backend_url + "/api/user/data/info/" + user_id,
         {
           method: "GET",
           headers: {

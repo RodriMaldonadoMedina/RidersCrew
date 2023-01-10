@@ -9,6 +9,8 @@ const IndividualAllEventsUserFavorite = (props) => {
   const [eventParticipation, setEventParticipation] = useState(true);
   const [eventParticipants, setEventParticipants] = useState(0);
   const nav = useNavigate();
+  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+  const backend_url = "https://sample-service-name-mzp0.onrender.com";
 
   useEffect(() => {
     setEvent(props.item);
@@ -39,7 +41,7 @@ const IndividualAllEventsUserFavorite = (props) => {
     };
     try {
       const resp = await fetch(
-        process.env.BACKEND_URL + "/api/listParticipants/" + props.item.id,
+        backend_url + "/api/listParticipants/" + props.item.id,
         opts
       );
       const data = await resp.json();

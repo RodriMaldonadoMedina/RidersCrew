@@ -22,6 +22,9 @@ const SearchEvents = () => {
   let lastDate = Date.now() + 864000000;
   let eventsLength = null;
 
+  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+  const backend_url = "https://sample-service-name-mzp0.onrender.com";
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
@@ -57,7 +60,7 @@ const SearchEvents = () => {
     };
     try {
       const resp = await fetch(
-        process.env.BACKEND_URL +
+        backend_url +
           "/api/searchevent/" +
           name +
           "/" +

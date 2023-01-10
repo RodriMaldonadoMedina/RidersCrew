@@ -26,6 +26,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		amountAllPosts: 0,
 		findFriends: [],
 		friends: [],
+		/* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+		backend_url: "https://sample-service-name-mzp0.onrender.com"
 	  },
 	  actions: {
 		setOriginCoords: (lon, lat) => {
@@ -35,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  setStore({ destinationCoords: { lon: lon, lat: lat } });
 		},
 		signup: (valores) => {
-		  fetch(process.env.BACKEND_URL + "/api/signup", {
+		  fetch(backend_url + "/api/signup", {
 			method: "POST",
 			body: JSON.stringify(valores),
 			headers: {
@@ -55,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   
 		loguearUsuario: async (datos) => {
 		  try {
-			const resp = await fetch(process.env.BACKEND_URL + "/api/login", {
+			const resp = await fetch(backend_url + "/api/login", {
 			  method: "POST",
 			  headers: {
 				"content-type": "application/json",
@@ -90,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getGrupos: async () => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/group",
+			  backend_url + "/api/user/group",
 			  {
 				method: "GET",
 				headers: {
@@ -118,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  // Obtiene todos los posts
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + `/api/all_posts/${page}/${per_page}`,
+			  backend_url + `/api/all_posts/${page}/${per_page}`,
 			  {
 				method: "GET",
 				headers: {
@@ -141,7 +143,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  // Obtiene todos los posts creados por el usuario actual logueado.
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/all_user_posts",
+			  backend_url + "/api/all_user_posts",
 			  {
 				method: "GET",
 				headers: {
@@ -160,7 +162,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getPostsSpecificUser: async (id) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/all_user_posts/" + id,
+			  backend_url + "/api/all_user_posts/" + id,
 			  {
 				method: "GET",
 				headers: {
@@ -178,7 +180,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		createPost: async (post) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/create_post",
+			  backend_url + "/api/create_post",
 			  {
 				method: "POST",
 				headers: {
@@ -197,7 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  // Actualiza o Edita un post
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/update_post",
+			  backend_url + "/api/update_post",
 			  {
 				method: "PUT",
 				headers: {
@@ -219,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  // Elimina un post
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/delete_post",
+			  backend_url + "/api/delete_post",
 			  {
 				method: "DELETE",
 				headers: {
@@ -260,7 +262,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/event",
+			  backend_url + "/api/event",
 			  opts
 			);
 			if (resp.status !== 200) {
@@ -284,7 +286,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/event/" + id,
+			  backend_url + "/api/event/" + id,
 			  opts
 			);
 			if (resp.status !== 200) {
@@ -325,7 +327,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/event",
+			  backend_url + "/api/event",
 			  opts
 			);
 			if (resp.status !== 200) {
@@ -351,7 +353,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/eventmap/" + id,
+			  backend_url + "/api/eventmap/" + id,
 			  opts
 			);
 			if (resp.status !== 200) {
@@ -373,7 +375,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/event/" + eventId,
+			  backend_url + "/api/event/" + eventId,
 			  opts
 			);
 			const data = await resp.json();
@@ -391,7 +393,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/events/" + page + "/" + per_page,
+			  backend_url + "/api/events/" + page + "/" + per_page,
 			  opts
 			);
 			const data = await resp.json();
@@ -413,7 +415,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL +
+			  backend_url +
 				"/api/publicevents/" +
 				page +
 				"/" +
@@ -444,7 +446,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/joinevent",
+			  backend_url + "/api/joinevent",
 			  opts
 			);
 			if (resp.status !== 200) {
@@ -466,7 +468,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/myevents/",
+			  backend_url + "/api/myevents/",
 			  opts
 			);
 			const data = await resp.json();
@@ -490,7 +492,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  };
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/unsubscribeevent/",
+			  backend_url + "/api/unsubscribeevent/",
 			  opts
 			);
 			const data = await resp.json();
@@ -511,7 +513,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
   
 		createGroup: (valores) => {
-		  fetch(process.env.BACKEND_URL + "/api/group", {
+		  fetch(backend_url + "/api/group", {
 			method: "POST",
 			body: JSON.stringify(valores),
 			headers: {
@@ -529,7 +531,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		setProfile: async (valores, id) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/" + id + "/data",
+			  backend_url + "/api/user/" + id + "/data",
 			  {
 				method: "POST",
 				headers: {
@@ -548,7 +550,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getProfilePicture: async (id) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/image_by_user/",
+			  backend_url + "/api/user/image_by_user/",
 			  {
 				method: "GET",
 				headers: {
@@ -571,7 +573,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getProfile: async () => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/data/info",
+			  backend_url + "/api/user/data/info",
 			  {
 				method: "GET",
 				headers: {
@@ -596,7 +598,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		updateProfile: async (datos) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/data/update",
+			  backend_url + "/api/user/data/update",
 			  {
 				method: "PUT",
 				headers: {
@@ -622,7 +624,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		uploadImage: async (image) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/image",
+			  backend_url + "/api/user/image",
 			  {
 				method: "POST",
 				headers: {
@@ -642,7 +644,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getImages: async (page) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/images/" + page + "/" + 6,
+			  backend_url + "/api/user/images/" + page + "/" + 6,
 			  {
 				headers: {
 				  "content-type": "application/json",
@@ -665,7 +667,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getImagePost: async (id) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/image/" + id,
+			  backend_url + "/api/user/image/" + id,
 			  {
 				method: "GET",
 				headers: {
@@ -687,7 +689,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		deleteImage: async (id) => {
 		  try {
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/user/image/delete/" + id,
+			  backend_url + "/api/user/image/delete/" + id,
 			  {
 				method: "DELETE",
 				headers: {
@@ -749,7 +751,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   
 		getFriend: async (name) => {
 		  try{
-			const resp = await fetch(process.env.BACKEND_URL + "/api/findData", {
+			const resp = await fetch(backend_url + "/api/findData", {
 			  method: "POST",
 			  headers: {
 				"content-type": "application/json",
@@ -770,7 +772,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getFriends: async () => {
 		  try{
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/getFriendList",
+			  backend_url + "/api/getFriendList",
 			  {
 				method: "GET",
 				headers: {
@@ -791,7 +793,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   
 		postFriend: async (secondaryId) => {
 		  try{
-			const resp = await fetch(process.env.BACKEND_URL + "/api/addFriend", {
+			const resp = await fetch(backend_url + "/api/addFriend", {
 			  method: "POST",
 			  headers: {
 				"content-type": "application/json",
@@ -820,7 +822,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		deleteFriend: async (secondaryId) => {
 		  try{
 			const resp = await fetch(
-			  process.env.BACKEND_URL + "/api/deleteFriend/" + secondaryId,
+			  backend_url + "/api/deleteFriend/" + secondaryId,
 			  {
 				method: "DELETE",
 				headers: {
