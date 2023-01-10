@@ -1,4 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	/* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
+	const backend_url = "https://sample-service-name-mzp0.onrender.com";
 	return {
 	  store: {
 		token: null,
@@ -25,9 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		destinationCoords: { lon: null, lat: null },
 		amountAllPosts: 0,
 		findFriends: [],
-		friends: [],
-		/* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
-		backend_url: "https://sample-service-name-mzp0.onrender.com"
+		friends: []
 	  },
 	  actions: {
 		setOriginCoords: (lon, lat) => {
