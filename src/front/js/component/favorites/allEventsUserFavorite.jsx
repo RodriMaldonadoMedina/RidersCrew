@@ -28,7 +28,7 @@ const AllEventsUserFavorite = (props) => {
   const getEventsUserFavorite = async (user_id, page, per_page) => {
     try {
       const resp = await fetch(
-        backend_url + "/api/events/"+ user_id + "/" + page + "/" + per_page,{
+        process.env.BACKEND_URL + "/api/events/"+ user_id + "/" + page + "/" + per_page,{
         headers: {
           "content-type": "application/json",
           Authorization: "Bearer " + localStorage.token

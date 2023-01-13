@@ -44,7 +44,7 @@ const ShowEvent = () => {
     };
     try {
       const resp = await fetch(
-        backend_url + "/api/listParticipants/" + params.eventId,
+        process.env.BACKEND_URL + "/api/listParticipants/" + params.eventId,
         opts
       );
       const data = await resp.json();

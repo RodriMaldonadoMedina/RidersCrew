@@ -41,7 +41,7 @@ const IndividualAllEventsUserFavorite = (props) => {
     };
     try {
       const resp = await fetch(
-        backend_url + "/api/listParticipants/" + props.item.id,
+        process.env.BACKEND_URL + "/api/listParticipants/" + props.item.id,
         opts
       );
       const data = await resp.json();

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Comment } from "../../component/Comments/comment.jsx";
 import { Context } from "../../store/appContext";
-import "../../../styles/allComments.css"
+import "../../../styles/allComments.css";
 
 export const AllComments = (props) => {
   const [comments, setComments] = useState([]);
@@ -25,7 +25,7 @@ export const AllComments = (props) => {
         },
       };
       const resp = await fetch(
-        backend_url +
+        process.env.BACKEND_URL +
           `/api/list${props.type}Comments/${props.item_id}`,
         opts
       );
@@ -52,7 +52,7 @@ export const AllComments = (props) => {
     };
     try {
       const resp = await fetch(
-        backend_url + `/api/list${props.type}Comments`,
+        process.env.BACKEND_URL + `/api/list${props.type}Comments`,
         opts
       );
       if (resp.status !== 200) {
@@ -84,20 +84,23 @@ export const AllComments = (props) => {
           rows={2}
         ></textarea>
       </div>
-      <button className="btn btn-outline-success my-3 rounded-pill enterBtn" onClick={handleSubmit}>
+      <button
+        className="btn btn-outline-success my-3 rounded-pill enterBtn"
+        onClick={handleSubmit}
+      >
         Guardar comentario
       </button>
       <button
         className="btn btn-outline-secondary ms-2 rounded-pill showBtn"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target={"#collapseComments"+props.item_id}
+        data-bs-target={"#collapseComments" + props.item_id}
         aria-expanded="false"
         aria-controls="collapseComments"
       >
-        Comentarios 
+        Comentarios
       </button>
-      <div className="collapse" id={"collapseComments"+props.item_id}>
+      <div className="collapse" id={"collapseComments" + props.item_id}>
         {comments.length && comments.length > 0 ? (
           comments.map((item, i) => <Comment item={item} key={i} />)
         ) : (

@@ -60,7 +60,7 @@ const SearchEvents = () => {
     };
     try {
       const resp = await fetch(
-        backend_url +
+        process.env.BACKEND_URL +
           "/api/searchevent/" +
           name +
           "/" +
@@ -95,7 +95,7 @@ const SearchEvents = () => {
     await actions.deleteEvent(id);
     navigate("/allpublicevents/1/5");
   };
-  
+
   if (eventsLength > 0) {
     return (
       <div>

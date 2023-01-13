@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Navbar } from "../component/navbar.js";
 import AllFavoriteUserPosts from "../component/favorites/allFavoriteUserPosts.jsx";
-import AllEventsUserFavorite from "../component/favorites/allEventsUserFavorite.jsx"
+import AllEventsUserFavorite from "../component/favorites/allEventsUserFavorite.jsx";
 
 const UserFavorite = () => {
-
-  const {user_id} = useParams();
+  const { user_id } = useParams();
   const [user, setUser] = useState({});
 
   /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
   const backend_url = "https://sample-service-name-mzp0.onrender.com";
 
-  useEffect(()=>{
+  useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
     getFavoriteProfile(user_id);
-  },[])
+  }, []);
 
   const getFavoriteProfile = async (user_id) => {
     try {
       const resp = await fetch(
-        backend_url + "/api/user/data/info/" + user_id,
+        process.env.BACKEND_URL + "/api/user/data/info/" + user_id,
         {
           method: "GET",
           headers: {
@@ -31,15 +30,15 @@ const UserFavorite = () => {
           },
         }
       );
-      const {data} = await resp.json();
-      if (resp.status !== 200){
+      const { data } = await resp.json();
+      if (resp.status !== 200) {
         alert("Peticion invalida/Invalid request");
         return false;
       }
       setUser(data);
       return true;
-    } catch (error) {    }
-  }
+    } catch (error) {}
+  };
 
   return (
     <>
@@ -80,7 +79,11 @@ const UserFavorite = () => {
       </div>
       <h2 className="text-white m-auto text-center">Sus Posts</h2>
       <AllFavoriteUserPosts user_id={user_id} />
-      <AllEventsUserFavorite noNavBar={true} noParams={true} user_id={user_id} />
+      <AllEventsUserFavorite
+        noNavBar={true}
+        noParams={true}
+        user_id={user_id}
+      />
     </>
   );
 };
