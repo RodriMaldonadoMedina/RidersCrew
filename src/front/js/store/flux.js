@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  setStore({ destinationCoords: { lon: lon, lat: lat } });
 		},
 		signup: (valores) => {
-		  fetch(backend_url + "/api/signup", {
+		  fetch(process.env.BACKEND_URL + "/api/signup", {
 			method: "POST",
 			body: JSON.stringify(valores),
 			headers: {
