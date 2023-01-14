@@ -1,6 +1,4 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	/* tuve que cambiar la variable process.env.process.env.BACKEND_URL por una constante por problemas con Render.com */
-	const backend_url = "https://sample-service-name-mzp0.onrender.com";
 	return {
 	  store: {
 		token: null,
@@ -732,7 +730,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  }
 		},
   
-		getWeather: async () => {
+		/* getWeather: async () => {
 		  try {
 			const resp = await fetch(
 			  "https://api.weatherstack.com/current?access_key=03c7127b5e1f869eba59e725b42f3753&query=New%20York"
@@ -747,7 +745,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  } catch (error) {
 			console.log("Peticion invalida/Invalid request");
 		  }
-		},
+		}, */
   
 		getFriend: async (name) => {
 		  try{

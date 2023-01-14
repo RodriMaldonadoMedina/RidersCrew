@@ -8,8 +8,7 @@ const AllEventsUserFavorite = (props) => {
   let { page, per_page } = useParams();
 
   const navigate = useNavigate();
-  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
-  const backend_url = "https://sample-service-name-mzp0.onrender.com";
+  
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {

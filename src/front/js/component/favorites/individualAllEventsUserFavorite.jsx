@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../store/appContext";
-import { Weather } from "../weather.jsx";
+/* import { Weather } from "../weather.jsx"; */
 
 const IndividualAllEventsUserFavorite = (props) => {
   const { store, actions } = useContext(Context);
@@ -9,8 +9,7 @@ const IndividualAllEventsUserFavorite = (props) => {
   const [eventParticipation, setEventParticipation] = useState(true);
   const [eventParticipants, setEventParticipants] = useState(0);
   const nav = useNavigate();
-  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
-  const backend_url = "https://sample-service-name-mzp0.onrender.com";
+  
 
   useEffect(() => {
     setEvent(props.item);
@@ -101,7 +100,7 @@ const IndividualAllEventsUserFavorite = (props) => {
             </p>
             {event.destination_lat != undefined ? (
               <span className="text-end rounded-circle ms-2">
-                <Weather long={event.origin_lon} lat={event.origin_lat} />
+                {/* <Weather long={event.origin_lon} lat={event.origin_lat} /> */}
               </span>
             ) : (
               <span>datos del tiempo no han cargado</span>
@@ -116,10 +115,10 @@ const IndividualAllEventsUserFavorite = (props) => {
             </p>
             {event.destination_lat != undefined ? (
               <span className="text-end rounded-circle ms-2">
-                <Weather
+                {/* <Weather
                   long={event.destination_lon}
                   lat={event.destination_lat}
-                />
+                /> */}
               </span>
             ) : (
               <span>datos del tiempo no han cargado</span>
