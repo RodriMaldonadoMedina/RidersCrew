@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  // Obtiene todos los posts
 		  try {
 			const resp = await fetch(
-				process.env.process.env.BACKEND_URL + `/api/all_posts/${page}/${per_page}`,
+				process.env.BACKEND_URL + `/api/all_posts/${page}/${per_page}`,
 			  {
 				method: "GET",
 				headers: {

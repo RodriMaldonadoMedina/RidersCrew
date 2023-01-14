@@ -7,9 +7,6 @@ export const AllComments = (props) => {
   const [comments, setComments] = useState([]);
   const { store, actions } = useContext(Context);
 
-  /* tuve que cambiar la variable process.env.BACKEND_URL por una constante por problemas con Render.com */
-  const backend_url = "https://sample-service-name-mzp0.onrender.com";
-
   useEffect(() => {
     let synchEffect = async () => {
       await getComments(props.item_id);
@@ -80,7 +77,7 @@ export const AllComments = (props) => {
         </label>
         <textarea
           id={`comment${props.item_id}`}
-          className="justify-content-end text-area-comment"
+          className="justify-content-end text-area-comment p-3"
           rows={2}
         ></textarea>
       </div>

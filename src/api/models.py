@@ -288,14 +288,21 @@ class Post(db.Model):
         image = Image.query.get(self.image_id)
         image = image.serialize()
 
+        user_data = User_Data.query.filter_by(user_id=self.user_id).first()
+        user_profile_picture = None
+        if user_data.profile_picture is not None:
+            user_profile_picture = Image.query.get(
+                user_data.profile_picture).image
+
         return {
             "id": self.id,
             "text": self.text,
             "image": image["image"],
             "image_id": self.image_id,
             "date": self.created_at,
-            "user_id": self.user_id
-
+            "user_id": self.user_id,
+            "user_name": user_data.name+" "+user_data.last_name,
+            "user_profile_picture": user_profile_picture
         }
 
     def serialize(self):
