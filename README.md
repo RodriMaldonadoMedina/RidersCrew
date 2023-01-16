@@ -3,7 +3,8 @@
 
 ### :mega: Que es Riders Crew?
 Es una aplicación web para generar eventos de viajes en moto, con amigos o conocidos. Donde se pueden subir distintos tipos de post, ya sea con fotos o solo texto. A su vez se pueden añadir comentarios en dichos posts. Tambien existe la posibilidad de agregar a un usuario como favorito, lo cual nos permite ver sus posts y en que eventos esta anotado, por si quisiesemos encontrarnos con dicho usuario.
-Esta hecho para que se adapte a cualquier dispositivo (responsive).
+Esta hecho para que se adapte a cualquier dispositivo (responsive). 
+Proyecto muy completo que nos permitio integrar todo lo aprendido en el bootcamp, el front con el back mas el consumo de apis externas
 
 ### :battery: Proyecto terminado!
 
